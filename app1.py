@@ -1,4 +1,4 @@
-# File: app.py
+
 import streamlit as st
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
@@ -8,7 +8,7 @@ from nltk.tokenize import word_tokenize
 
 nltk.download('punkt')
 
-# Dummy dataset
+# a Dummy dataset
 data = {
     'title': ['Introduction to Algorithms', 'Artificial Intelligence: A Modern Approach', 'Deep Learning', 
               'Computer Networks', 'Clean Code', 'Design Patterns', 'Data Science from Scratch'],
@@ -48,7 +48,7 @@ def get_recommendations(user_input, df):
 
 # Streamlit App
 def main():
-    # Add a sidebar
+    # Adding the  sidebar
     st.sidebar.header("Customize Your Search")
     selected_genre = st.sidebar.selectbox("Select a genre:", options=["All"] + df_books['genre'].unique().tolist())
     selected_difficulty = st.sidebar.radio("Difficulty Level:", ["Beginner", "Intermediate", "Advanced"])
@@ -57,7 +57,7 @@ def main():
     st.title("📚 Computing  learning Recommendation System")
     st.markdown("Describe the topics you're interested in learning about:")
 
-    # Input section
+    #  the Input section
     user_input = st.text_area("Your interests:", placeholder="e.g., deep learning, algorithms, clean code")
     
     # Button to get recommendations
@@ -80,7 +80,7 @@ def main():
     for _, row in top_books.iterrows():
         st.sidebar.write(f"- **{row['title']}** ({row['genre']})")
 
-    # Footer
+    # Footer section
     st.markdown("---")
     st.markdown("🔖 *Enhance your learning journey with curated book recommendations!*")
 
